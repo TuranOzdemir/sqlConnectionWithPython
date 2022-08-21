@@ -28,7 +28,7 @@ try:
         port = port 
     )   as conn:
         with conn.cursor(cursor_factory = psycopg2.extras.DictCursor) as cur:
-# yeni veri kaydedilirken eski veriler üst üste binmesin diye her seferinde tabloyu silip tekrar oluşturuyoruz
+# We delete and recreate the table each time so that the old data does not overlap while the new data is being recorded.
             cur.execute('DROP TABLE IF EXISTS employee')
 # ****************** SQL SCRIPTS STARTS HERE***************
 
@@ -64,10 +64,9 @@ try:
 
 # ****************** SQL SCRIPTS ENDS HERE***************
 
-# eğer bağlantı bilgilerinde veya sql scriptlerinde bir hata çıkarsa kullanıcıya bildirecek  
+# It will notify the user if there is an error in the connection information or sql scripts 
 except Exception as error:
     print(error)
-# is not None (try bloğunun içi sorunsuz çalıışmış ise)  açık kalan bağlantıları kapat.
 finally:
     if conn is not None:
         conn.close()
