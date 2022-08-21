@@ -1,7 +1,7 @@
 import psycopg2
 import psycopg2.extras
 from configparser import ConfigParser
-from db_class import db_conf 
+from config_class import db_conf 
 
 
 dbname = 'demo'
@@ -9,7 +9,7 @@ db_conf =  db_conf('db_conn_conf.ini')
 db_info = db_conf.read(dbname)
 
 
-## CONNECTION INFO (TAKING FROM CONFIGRATION FILE) 
+## CONNECTION INFO (TAKING FROM CONFIGRATION CLASS -> CLASS TAKES IT FROM 'config.ini' file ) 
 hostname = db_info['hostname']
 database = db_info['database']
 username = db_info['username']
