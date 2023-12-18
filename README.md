@@ -1,2 +1,3 @@
 # sqlConnectionWithPython
-this repository is reusable code for psql connection with python. with that I can use this repository when I need it 
+this repository is reusable code for psql connection with python. It can be added to the other projects when needed
+ 
